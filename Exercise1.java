@@ -9,6 +9,7 @@
             }
             System.out.println("I’ve printed out the sums of i and j up to bob12 809"
                     + i + "," + j);
+            System.out.println("hej");
         }
     }
 
