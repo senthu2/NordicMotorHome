@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+    <body>
+        <h1>Hvad vil du opdatere?</h1>
+
+            <form action="/updateRental/" method="post">
+
+            <input type="hidden" name="rental_id" th:value="${rental.rental_id}">
+            <input type="number" name="total_price" th:value="${rental.total_price}">
+            <input type="submit" value="Gem ændringer">
+
+            </form>
+    </body>
+</html>
