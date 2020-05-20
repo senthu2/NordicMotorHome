@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Change any details on the motorhome</h1>
+<br>
+
+<form action="/updateCar" method="post">
+    <label>Change the motorhomes brand</label>
+    <input type="hidden" name="car_id" th:value="${car.car_id}">
+    <input type="text" name="brand" th:value="${car.brand}">
+    <br>
+    <label>Change the motorhomes model</label>
+    <input type="text" name="model" th:value="${car.model}">
+    <br>
+    <label>Change the motorhome number of beds</label>
+    <input type="text" name="beds" th:value="${car.beds}">
+    <br>
+    <label>Change the motorhomes status</label>
+    <input type="text" name="car_status" th:value="${car.car_status}">
+    <br>
+    <label>Change the motorhomes registration</label>
+    <input type="text" name="car_registration" th:value="${car.car_registration}">
+    <br>
+    <label>Change the motorhomes number of mileage</label>
+    <input type="number" name="mileage" th:value="${car.mileage}">
+    <br>
+    <label>Change the motorhomes price group</label>
+    <input type="text" name="price_group" th:value="${car.price_group}">
+    <br>
+    <input type="submit" value="Save changes">
+</form>
+</body>
+</html>
