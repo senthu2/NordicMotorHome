@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <LINK REL="stylesheet" type="text/css" href="NmpCSS.css">
+</head>
+<body>
+<h1>Rentals list</h1>
+
+<a href="/create">
+    <button class="btn-create" id="btn-create">Opret ny udlejning</button>
+</a>
+<table>
+    <thead>
+    <tr>
+        <th>Rental ID</th>
+        <th>Dok ID</th>
+        <th>Cos ID</th>
+        <th>Days</th>
+        <th>Full price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rentals: ${rentals}">
+        <td th:text="${rentals.rental_id}">
+        <td th:text="${rentals.documentation_id}">
+        <td th:text="${rentals.customer_id}">
+        <td th:text="${rentals.days_of_rental}">
+        <td th:text="${rentals.total_price}">
+        <td>
+            <a th:href="@{'/viewOne/'+${rentals.rental_id}}">
+                <button class="btn-viewOne", id="btn-viewOne">Se detaljer</button>
+            </a>
+
+            <a th:href="@{'/delete/'+${rentals.rental_id}}">
+                <button class="btn-delete", id="btn-delete">Slet udlejning</button>
+            </a>
+
+            <a th:href="@{'/update/'+${rentals.rental_id}}">
+                <button class="btn-update", id="btn-update">Opdater oplysninger</button>
+            </a>
+        </td>
+    </tbody>
+</table>
+</body>
+</html>

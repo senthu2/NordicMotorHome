@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Opret udlejning</title>
+</head>
+<body>
+<h1>Opret en udlejning</h1>
+
+<form action="/create" method="post">
+
+    <label>documentation_id</label>
+    <input type="text" name="documentation_id">
+    <label>Kunde ID</label>
+    <input type="text" name="customer_id">
+    <label>days_of_rental</label>
+    <input type="number" name="days_of_rental">
+    <label>total_price</label>
+    <input type="number" name="total_price">
+    <br><br>
+
+    <label>Vil du leje et picnic bord?</label>
+    <br>
+    <input type="radio" name="rent_table"  id="yes" value="1">
+    <label>Ja tak</label>
+    <input type="radio" name="rent_table" id="no"  value="0">
+    <label for="no">Nej tak</label><br>
+    <br><br>
+
+    <label>Vil du leje stole(antal samme som antal senge)</label>
+    <br>
+    <input type="radio" name="rent_chairs" id="yes" value="1">
+    <label>Ja tak</label>
+    <input type="radio" name="rent_chairs" id="no"  value="0">
+    <label for="no">Nej tak</label><br>
+    <br><br>
+
+    <label>Vil du leje et børnesæde?</label>
+    <br>
+    <input type="radio" name="rent_car_seat"  id="yes" value="1">
+    <label>Ja tak</label>
+    <input type="radio" name="rent_car_seat"  id="no"  value="0">
+    <label for="no">Nej tak</label><br>
+    <br><br>
+
+    <label>Vil du leje en cykelanhaenger?</label>
+    <br>
+    <input type="radio" name="rent_bike_rack"  id="yes" value="1">
+    <label>Ja tak</label>
+    <input type="radio" name="rent_bike_rack" id="no"  value="0">
+    <label for="no">Nej tak</label><br>
+    <br><br>
+
+    <label>Vil du leje sengetoej?</label>
+    <br>
+    <input type="radio" name="rent_bed_linnen"  id="yes" value="1">
+    <label>Ja tak</label>
+    <input type="radio" name="rent_bed_linnen"  id="no"  value="0">
+    <label for="no">Nej tak</label><br>
+
+    <input style="background-color: cyan" type="submit" value="Opret ny udlejning">
+</form>
+</body>
+</html>
