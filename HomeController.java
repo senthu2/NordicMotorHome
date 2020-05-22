@@ -42,7 +42,7 @@ public class HomeController
     public String viewOne(@PathVariable("id") int id, Model model)
     {
         model.addAttribute("rental", rentalservice.findRentalById(id));
-        return "ViewRental";
+        return "home/ViewRental";
     }
 
     @GetMapping("/delete/{id}")
@@ -64,7 +64,7 @@ public class HomeController
         model.addAttribute("rental", r);
         System.out.println("update rental id "+ r.getRental_id() + " price " + r.getTotal_price());
 
-        return "updateRental";
+        return "home/updateRental";
     }
 
     @PostMapping("/updateRental/")
