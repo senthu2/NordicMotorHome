@@ -37,6 +37,11 @@ public class RentalService
         return rentalrepo.updateRental(id, r);
     }
 
+    public Rental endRental(int id, Rental r)
+    {
+        return rentalrepo.endRental(id, r);
+    }
+
     public double setSeasonPrice(Rental r)
     {
         r.setTotal_price(r.getTotal_price()* prisfaktor());

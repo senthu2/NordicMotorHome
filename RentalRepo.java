@@ -51,4 +51,9 @@ public class RentalRepo
         System.out.println("Kommer koden mon ogsaa her til? " + r.getTotal_price());
         return r;
     }
+
+    /*public Rental getSeason()
+    {
+        String sql = "SELECT price_factor from seasons "
+    }*/
 }

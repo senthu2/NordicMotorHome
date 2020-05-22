@@ -74,4 +74,19 @@ public class HomeController
         rentalservice.updateRental(r.getRental_id(), r);
         return "redirect:/";
     }
+
+    @GetMapping("/returnering/{rental_id}")
+    public String returnering(@PathVariable("rental_id") int id, Model model)
+    {
+        Rental r = rentalservice.findRentalById(id);
+        model.addAttribute("rental", r);
+        return "returnering";
+    }
+
+    @PostMapping("/returnerBil/")
+    public String returnerBil(@ModelAttribute("rental") Rental r)
+    {
+
+        return "redirect:/";
+    }
 }
