@@ -37,15 +37,25 @@ public class RentalService
         return rentalrepo.updateRental(id, r);
     }
 
-    public Rental endRental(int id, Rental r)
+    /*public Rental endRental(int id, Rental r)
     {
         return rentalrepo.endRental(id, r);
-    }
+    }*/
 
     public double setSeasonPrice(Rental r)
     {
         r.setTotal_price(r.getTotal_price()* prisfaktor());
         return r.getTotal_price();
+    }
+
+    public Rental returnerBil(int id, Rental r)
+    {
+        System.out.println("returnerbil xxxx id = "+id + " rental.id = "+r.getRental_id());
+        System.out.println("Det her er mileage " + r.getMileage());
+
+        overDriven(r);
+        System.out.println("Det her er mileage " + r.getMileage());
+        return rentalrepo.returnerBil(id, r);
     }
 
     public double prisfaktor()   //fixME
@@ -67,7 +77,7 @@ public class RentalService
 
     public int tankFilled()
     {
-        boolean isTankFilled = true;
+        boolean isTankFilled = false;
 
         if(isTankFilled)
         {
@@ -76,10 +86,31 @@ public class RentalService
         return 70;
     }
 
-    public double setTankPrice(Rental r)
+    public Rental setTankPrice(int id, Rental r)
     {
-        r.setTotal_price(r.getTotal_price()+tankFilled());
-        return r.getTotal_price();
+        //r.setTotal_price(r.getTotal_price()+tankFilled());
+        //return r.getTotal_price();
+        return rentalrepo.setTankPrice(id, r);
     }
 
+    /*public void overDriven(Rental r)
+    {
+        int kmToDrive = 400*r.getDays_of_rental();
+        int driven = (r.getOverDriven())-r.getMileage();
+        int KmTooMany = driven-kmToDrive;
+
+        if (driven >= kmToDrive)
+        {
+            r.setTotal_price(r.getTotal_price() + KmTooMany);
+        }
+        r.setMileage(r.getOverDriven());
+    } */
+
+    public void overDriven(Rental r)
+    {
+         r.setTotal_price(r.getTotal_price()+Math.max(0, (r.getOverDriven()-r.getMileage())-(r.getDays_of_rental()*400)));
+         System.out.println("OverDriven = " + r.getOverDriven() + ". Milage = " + r.getMileage() + ". DaysofRental = " + r.getDays_of_rental());
+        //r.setMileage(r.getOverDriven());
+
+    }
 }

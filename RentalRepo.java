@@ -16,7 +16,10 @@ public class RentalRepo
     JdbcTemplate template;
     public List<Rental> fetchAll()
     {
-        String sql = "select * from Rentals";
+        String sql = "select r.*, d.mileage from NMP.Rentals r\n" +
+                " inner join NMP.documentation d\n" +
+                " on r.documentation_id = d.documentation_id";
+        //String sql = "select * from Rentals";
         RowMapper<Rental> rowmapper = new BeanPropertyRowMapper<>(Rental.class);
         return template.query(sql, rowmapper);
     }
@@ -30,7 +33,11 @@ public class RentalRepo
 
     public Rental findRentalById(int id)
     {
-        String sql = "SELECT * FROM Rentals where rental_id = ?";
+        //String sql = "SELECT * FROM Rentals where rental_id = ?";
+        String sql = "select r.*, d.mileage from NMP.Rentals r\n"
+                    + " inner join NMP.documentation d\n"
+                    + " on r.documentation_id = d.documentation_id"
+                    + " where rental_id = ?";
         RowMapper<Rental> rowmapper = new BeanPropertyRowMapper<>(Rental.class);
         Rental r = template.queryForObject(sql, rowmapper,id);
         return r;
@@ -49,6 +56,26 @@ public class RentalRepo
         System.out.println("pris " + r.getTotal_price()+" id "+r.getRental_id());
         template.update(sql, r.getTotal_price(), r.getRental_id());
         System.out.println("Kommer koden mon ogsaa her til? " + r.getTotal_price());
+        return r;
+    }
+
+    public Rental returnerBil(int id, Rental r)
+    {
+        String sql = "UPDATE Rentals set tank_Filled = ?, overDriven = ?, total_price = ? where rental_id = ?";
+        String sql1 = "UPDATE documentation set mileage = ? where documentation_id = ?";
+        template.update(sql, r.isTank_Filled(),r.getOverDriven(), r.getTotal_price(), r.getRental_id());
+        System.out.println("THEAs SQL har  overdriven = "+r.getOverDriven()+" tank_Filled = " + r.isTank_Filled() + " og doc.id = "+ r.getDocumentation_id());
+        template.update(sql1, r.getMileage(), r.getDocumentation_id());
+
+        //System.out.println("dok_id = " + r.getDocumentation_id());
+        return r;
+    }
+
+    public Rental setTankPrice(int id, Rental r)
+    {
+
+        String sql = "update Rentals set tank_Filled = ? where rental_id = ?";
+        template.update(sql, r.isTank_Filled(), r.getRental_id());
         return r;
     }
 

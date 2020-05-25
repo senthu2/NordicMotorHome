@@ -79,14 +79,17 @@ public class HomeController
     public String returnering(@PathVariable("rental_id") int id, Model model)
     {
         Rental r = rentalservice.findRentalById(id);
+        System.out.println("RENTAL returnering id "+r.getRental_id()+" milage "+r.getMileage());
         model.addAttribute("rental", r);
-        return "returnering";
+        return "home/returnering";
     }
 
     @PostMapping("/returnerBil/")
-    public String returnerBil(@ModelAttribute("rental") Rental r)
+    public String returnerBil(@ModelAttribute("rental") Rental r) //@ModelAttribute("rental"))
     {
-
+        System.out.println("RetunerBil " + r.getRental_id());
+        rentalservice.returnerBil(r.getRental_id(),r);
+        //rentalservice.setTankPrice(r.getRental_id(),r);
         return "redirect:/";
     }
 }

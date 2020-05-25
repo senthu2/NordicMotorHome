@@ -10,6 +10,10 @@ public class Rental
     private int rental_id;
     private int documentation_id;
     private int customer_id;
+    //Cars c = findbyID
+
+    private String from_Date;
+    private String to_Date;
     private int days_of_rental;
     private double total_price;
     private boolean rent_table;
@@ -17,17 +21,24 @@ public class Rental
     private boolean rent_car_seat;
     private boolean rent_bike_rack;
     private boolean rent_bed_linnen;
+    private boolean tank_Filled;
+    private int overDriven;
+    //secondary key fra bil
+    private int mileage;
+
 
     public Rental()
     {
 
     }
 
-    public Rental(int rental_id, int documentation_id, int customer_id, int days_of_rental, int total_price, boolean rent_table, boolean rent_chairs, boolean rent_car_seat, boolean rent_bike_rack, boolean rent_bed_linnen)
+    public Rental(int rental_id, int documentation_id, int customer_id, String from_Date, String to_Date, int days_of_rental, int total_price, boolean rent_table, boolean rent_chairs, boolean rent_car_seat, boolean rent_bike_rack, boolean rent_bed_linnen, boolean tank_Filled, int overDriven, int mileage)
     {
         this.rental_id = rental_id;
         this.documentation_id = documentation_id;
         this.customer_id = customer_id;
+        this.from_Date = from_Date;
+        this.to_Date = to_Date;
         this.days_of_rental = days_of_rental;
         this.total_price = total_price;
         this.rent_table = rent_table;
@@ -35,6 +46,7 @@ public class Rental
         this.rent_car_seat = rent_car_seat;
         this.rent_bike_rack = rent_bike_rack;
         this.rent_bed_linnen = rent_bed_linnen;
+        this.mileage = mileage;
     }
 
 
@@ -68,6 +80,26 @@ public class Rental
         this.customer_id = customer_id;
     }
 
+    public String getFrom_Date()
+    {
+        return from_Date;
+    }
+
+    public void setFrom_Date(String from_Date)
+    {
+        this.from_Date = from_Date;
+    }
+
+    public String getTo_Date()
+    {
+        return to_Date;
+    }
+
+    public void setTo_Date(String to_Date)
+    {
+        this.to_Date = to_Date;
+    }
+
     public int getDays_of_rental()
     {
         return days_of_rental;
@@ -96,35 +128,71 @@ public class Rental
         this.rent_table = rent_table;
     }
 
-    public boolean isRent_chairs() {
+    public boolean isRent_chairs()
+    {
         return rent_chairs;
     }
 
-    public void setRent_chairs(boolean rent_chairs) {
+    public void setRent_chairs(boolean rent_chairs)
+    {
         this.rent_chairs = rent_chairs;
     }
 
-    public boolean isRent_car_seat() {
+    public boolean isRent_car_seat()
+    {
         return rent_car_seat;
     }
 
-    public void setRent_car_seat(boolean rent_car_seat) {
+    public void setRent_car_seat(boolean rent_car_seat)
+    {
         this.rent_car_seat = rent_car_seat;
     }
 
-    public boolean isRent_bike_rack() {
+    public boolean isRent_bike_rack()
+    {
         return rent_bike_rack;
     }
 
-    public void setRent_bike_rack(boolean rent_bike_rack) {
+    public void setRent_bike_rack(boolean rent_bike_rack)
+    {
         this.rent_bike_rack = rent_bike_rack;
     }
 
-    public boolean isRent_bed_linnen() {
+    public boolean isRent_bed_linnen()
+    {
         return rent_bed_linnen;
     }
 
-    public void setRent_bed_linnen(boolean rent_bed_linnen) {
+    public void setRent_bed_linnen(boolean rent_bed_linnen)
+    {
         this.rent_bed_linnen = rent_bed_linnen;
+    }
+
+    public boolean isTank_Filled()
+    {
+        return tank_Filled;
+    }
+
+    public void setTank_Filled(boolean tank_Filled)
+    {
+        this.tank_Filled = tank_Filled;
+    }
+
+    public int getOverDriven()
+    {
+        return overDriven;
+    }
+
+    public void setOverDriven(int overDriven)
+    {
+        this.overDriven = overDriven;
+    }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
     }
 }
