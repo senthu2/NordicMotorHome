@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/NMP.css">
+</head>
+<body>
+
+    <h1>Edit staff member</h1>
+    <br>
+    <form action="/updateStaffUp" method="post">
+        <input type="hidden" name="staff_id" th:value="${staff.staff_id}">
+        <label>First name:</label>
+        <input type="text" name="staff_first_name" th:value="${staff.staff_first_name}">
+        <label>Last name:</label>
+        <input type="text" name="staff_last_name" th:value="${staff.staff_last_name}">
+
+    <h1>Edit address</h1>
+
+        <label>First name:</label>
+        <input type="text" name="street" th:value="${staff.street}">
+        <label>Last name:</label>
+        <input type="text" name="house_num" th:value="${staff.house_num}">
+
+    <h1>Edit location</h1>
+
+        <label>First name:</label>
+        <input type="text" name="city" th:value="${staff.city}">
+        <label>Last name:</label>
+        <input type="text" name="zip_code" th:value="${staff.zip_code}">
+
+        <input type="submit" value="Save changes">
+    </form>
+</body>
+</html>
