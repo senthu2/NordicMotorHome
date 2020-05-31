@@ -1,7 +1,7 @@
-package com.example.demo.CarsService;
+package com.example.demo.Service;
 
-import com.example.demo.Model.Cars;
-import com.example.demo.Model.Customer;
+import com.example.demo.model.Cars;
+//import com.example.demo.model.Customer;
 import com.example.demo.Repository.CarsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,11 @@ public class CarsService {
     public List<Cars> fetchAll(){
 
         return carsRepo.fetchAll();
+    }
+
+    public List<Cars> fetchAvailablePriceGroups(String from_date, String to_date)
+    {
+        return carsRepo.fetchAvailablePriceGroups(from_date, to_date);
     }
 
     public Cars addCar(Cars c){

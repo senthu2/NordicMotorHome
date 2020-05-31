@@ -11,7 +11,8 @@
 
 <form action="/create" method="post">
 
-
+    <label>documentation_id</label>
+    <input type="text" name="documentation_id">
     <label>Kunde ID</label>
     <input type="text" name="customer_id">
 
@@ -22,11 +23,12 @@
     <label>to_Date</label>
     <input type="text" name="to_Date" placeholder="yyyy-mm-dd">
 
-<!--
-    <label>Pris</label>
+    <label>Antal dage</label>
+    <input type="number" name="days_of_rental">
+
+    <label>total_price</label>
     <input type="number" name="total_price">
     <br><br>
--->
 
     <label>Vil du leje et picnic bord?</label>
     <br>
@@ -69,7 +71,7 @@
 
     <br><br><br>
 
-    <h2>Hvor vil du afhente bilen?</h2>
+        <h2>Hvor vil du afhente bilen?</h2>
     <table>
         <thead>
         <tr>
@@ -83,27 +85,26 @@
         </tr>
         </thead>
         <tbody>
-
         <tr th:each="p: ${point}">
             <td th:text="${p.pickUP_id}">
             <td th:text="${p.place}">
             <td th:text="${p.kmAway}">
-            <td th:text="${p.DrivePriceStr}">
+            <td th:text="${p.DrivePrice}">
             <td>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="pickUP_id" name="pickUP_id" th:value="${p.pickUP_id}">
+                        <input type="radio" id='pickUp' name="pickUp">
                     </label>
                 </div>
             </td>
             <td>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="dropOf_id" name="dropOf_id" th:value="${p.pickUP_id}">
+                        <input type="radio" id='DropOf' name="DropOf">
                     </label>
                 </div>
             </td>
-        </tr>
+            </tr>
         </tbody>
 
 
@@ -115,12 +116,9 @@
     <input type="text" placeholder="gadenavn og nummer" name="place">
     <br>
 
-    <input type="number" step="0.01" placeholder="Km fra kontor" name="kmAway" value="0.00">
+    <input type="number" step="0.01" placeholder="Km fra kontor" name="kmAway">
     <br>
-
-
-
-    <input style="background-color: cyan" type="submit" value="Næste">
+    <input style="background-color: cyan" type="submit" value="Opret ny udlejning">
 
 
 </form>

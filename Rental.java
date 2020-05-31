@@ -10,12 +10,15 @@ public class Rental
     private int rental_id;
     private int documentation_id;
     private int customer_id;
-    //Cars c = findbyID
 
+
+    //More details about the rental
     private String from_Date;
     private String to_Date;
     private int days_of_rental;
     private double total_price;
+
+    //extras to rent
     private boolean rent_table;
     private boolean rent_chairs;
     private boolean rent_car_seat;
@@ -23,8 +26,13 @@ public class Rental
     private boolean rent_bed_linnen;
     private boolean tank_Filled;
     private int overDriven;
+    private int pickUP_id;
+    private int dropOf_id;
+
     //secondary key fra bil
     private int mileage;
+    //Secondary key fra price_group
+    private int price_id;
 
 
     public Rental()
@@ -32,7 +40,7 @@ public class Rental
 
     }
 
-    public Rental(int rental_id, int documentation_id, int customer_id, String from_Date, String to_Date, int days_of_rental, int total_price, boolean rent_table, boolean rent_chairs, boolean rent_car_seat, boolean rent_bike_rack, boolean rent_bed_linnen, boolean tank_Filled, int overDriven, int mileage)
+    public Rental(int rental_id, int documentation_id, int customer_id, String from_Date, String to_Date, int days_of_rental, int total_price, boolean rent_table, boolean rent_chairs, boolean rent_car_seat, boolean rent_bike_rack, boolean rent_bed_linnen, boolean tank_Filled, int overDriven, int mileage, double price, int PickUP_id,int dropOf_id, int price_id)
     {
         this.rental_id = rental_id;
         this.documentation_id = documentation_id;
@@ -47,6 +55,10 @@ public class Rental
         this.rent_bike_rack = rent_bike_rack;
         this.rent_bed_linnen = rent_bed_linnen;
         this.mileage = mileage;
+        //this.price = price;
+        this.pickUP_id = PickUP_id;
+        this.dropOf_id = dropOf_id;
+        this.price_id = price_id;
     }
 
 
@@ -194,5 +206,39 @@ public class Rental
 
     public void setMileage(int mileage) {
         this.mileage = mileage;
+    }
+
+    /*
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price_group) {
+        this.price = price_group;
+    }
+    */
+
+    public int getPickUP_id() {
+        return pickUP_id;
+    }
+
+    public void setPickUP_id(int pickUP_id) {
+        this.pickUP_id = pickUP_id;
+    }
+
+    public int getDropOf_id() {
+        return dropOf_id;
+    }
+
+    public void setDropOf_id(int dropOf_id) {
+        this.dropOf_id = dropOf_id;
+    }
+
+    public int getPrice_id() {
+        return price_id;
+    }
+
+    public void setPrice_id(int price_id) {
+        this.price_id = price_id;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.Model;
+package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,13 +15,13 @@ public class Cars {
     private String car_status;
     private String car_registration;
     private int mileage;
-    private int price_group;
+    private int price_id;
 
 public Cars(){
 
 }
 
-    public Cars(int car_id, String brand, String model, int beds, int documentation_id, String car_status, String car_registration, int mileage, int price_group) {
+    public Cars(int car_id, String brand, String model, int beds, int documentation_id, String car_status, String car_registration, int mileage, int price_id) {
         this.car_id = car_id;
         this.brand = brand;
         this.model = model;
@@ -30,7 +30,7 @@ public Cars(){
         this.car_status = car_status;
         this.car_registration = car_registration;
         this.mileage = mileage;
-        this.price_group = price_group;
+        this.price_id = price_id;
     }
 
     public int getCar_id() {
@@ -103,9 +103,9 @@ public Cars(){
     this.car_registration = car_registration;
     }
 
-    public int getMileage() {
-
-    return mileage;
+    public int getMileage()
+    {
+        return mileage;
     }
 
     public void setMileage(int mileage) {
@@ -113,13 +113,13 @@ public Cars(){
     this.mileage = mileage;
     }
 
-    public int getPrice_group() {
+    public int getPrice_id() {
 
-    return price_group;
+    return price_id;
     }
 
-    public void setPrice_group(int price_group) {
+    public void setPrice_id(int price_id) {
 
-    this.price_group = price_group;
+    this.price_id = price_id;
     }
 }

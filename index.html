@@ -17,29 +17,38 @@
         <th>Rental ID</th>
         <th>Dok ID</th>
         <th>Cos ID</th>
-        <th>Days</th>
-        <th>Full price</th>
+        <th>Antal dage</th>
+        <th>Total pris</th>
+        <th>KM-antal</th>
+        <th>Pick up Point</th>
         <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="rentals: ${rentals}">
-        <td th:text="${rentals.rental_id}">
-        <td th:text="${rentals.documentation_id}">
-        <td th:text="${rentals.customer_id}">
-        <td th:text="${rentals.days_of_rental}">
-        <td th:text="${rentals.total_price}">
+    <tr th:each="r: ${rentals}">
+        <td th:text="${r.rental_id}">
+        <td th:text="${r.documentation_id}">
+        <td th:text="${r.customer_id}">
+        <td th:text="${r.days_of_rental}">
+        <td th:text="${r.total_price}">
+        <td th:text="${r.mileage}">
+        <td th:text="${r.PickUP_id}">
         <td>
-            <a th:href="@{'/viewOne/'+${rentals.rental_id}}">
+            <a th:href="@{'/viewOne/'+${r.rental_id}}">
                 <button class="btn-viewOne", id="btn-viewOne">Se detaljer</button>
             </a>
 
-            <a th:href="@{'/delete/'+${rentals.rental_id}}">
+            <a th:href="@{'/delete/'+${r.rental_id}}">
                 <button class="btn-delete", id="btn-delete">Slet udlejning</button>
             </a>
 
-            <a th:href="@{'/update/'+${rentals.rental_id}}">
+            <a th:href="@{'/update/'+${r.rental_id}}">
                 <button class="btn-update", id="btn-update">Opdater oplysninger</button>
+            </a>
+
+
+            <a th:href="@{'/returnering/'+${r.rental_id}}">
+                <button class="btn-return", id="btn-return">Aflevering af bilen</button>
             </a>
         </td>
     </tbody>
