@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
-    <body>
-        <h1>Hvad vil du opdatere?</h1>
-
-            <form action="/updateRental/" method="post">
+<body>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Opdater udlejning</h1>
+    <div class="wrapper" id="wrapper-view">
+        <div class="content" id="content-create">
+            <form action="/updateRentalUp/" method="post">
 
             <input type="hidden" name="rental_id" th:value="${rental.rental_id}">
-            <input type="number" name="total_price" th:value="${rental.total_price}">
-            <input type="submit" value="Gem ændringer">
-
+            <label>Skift fuld pris:</label>
+            <input style="float: right;" type="number" name="total_price" th:value="${rental.total_price}">
+            <br><hr class="line">
+            <input style="float: right;" type="submit" value="Gem ændringer">
+            <br><br>
             </form>
-    </body>
+        </div>
+    </div>
+</body>
 </html>

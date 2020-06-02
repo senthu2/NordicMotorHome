@@ -1,8 +1,8 @@
 package com.example.demo.Service;
 
 import com.example.demo.Repository.RentalRepo;
-import com.example.demo.model.Cars;
-import com.example.demo.model.Rental;
+import com.example.demo.Model.Cars;
+import com.example.demo.Model.Rental;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -83,8 +83,8 @@ public class RentalService
 
     public double overDriven(Rental r)
     {
-         r.setTotal_price(r.getTotal_price()+Math.max(0, (r.getOverDriven()-r.getMileage())-(r.getDays_of_rental()*400)));
-         System.out.println("OverDriven = " + r.getOverDriven() + ". Milage = " + r.getMileage() + ". DaysofRental = " + r.getDays_of_rental() + "Hvad er prisen " + r.getTotal_price());
+        r.setTotal_price(r.getTotal_price()+Math.max(0, (r.getOverDriven()-r.getMileage())-(r.getDays_of_rental()*400)));
+        System.out.println("OverDriven = " + r.getOverDriven() + ". Milage = " + r.getMileage() + ". DaysofRental = " + r.getDays_of_rental() + "Hvad er prisen " + r.getTotal_price());
         r.setMileage(r.getOverDriven());
         return r.getTotal_price();
     }

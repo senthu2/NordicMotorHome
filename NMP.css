@@ -1,0 +1,155 @@
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+    background: rgb(62,195,34);
+    background: linear-gradient(0deg, rgba(62,195,34,1) 10%, rgba(23,157,242,1) 90%);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial;
+}
+
+/*Header*/
+.mar{
+    margin-left: 10%;
+}
+#top{
+    margin-left: 10%;
+    margin-bottom: -30px;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    display: inline-block;
+    float: left;
+    border: 2px solid green;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 17px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 20%;
+    box-shadow: 5px 5px 5px darkolivegreen;
+}
+
+.tablink:hover {
+    background-color: #777;
+    border: 2px solid darkgreen;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 50px 20px;
+    height: auto;
+    width: 75.35%;
+    margin-left: 10%;
+    box-shadow: 5px 5px 5px darkolivegreen;
+}
+#Rental {background-color: #3e8e3e;}
+#Cars {background-color: #3e8e3e;}
+#Customers {background-color: #3e8e3e;}
+#Staff {background-color: #3e8e3e;}
+
+/*table for fetch, view and create*/
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th{
+    background-color: #555;
+}
+td, th{
+    border: none;
+    text-align: left;
+    padding: 4px;
+}
+tr:nth-child(even){
+    background-color: #555;
+}
+
+/*buttons*/
+.btn{
+    border: 1px solid green;
+    border-radius: 2px;
+    color: white;
+    padding: 7px 10px;
+    text-align: center;
+}
+.btn:hover{
+    box-shadow: 2px 2px 2px yellow;
+}
+#btn-create{
+    background-color: greenyellow;
+}
+#btn-viewOne{
+    background-color: yellowgreen;
+}
+#btn-delete{
+    background-color: yellowgreen;
+}
+#btn-update{
+    background-color: yellowgreen;
+}
+#btn-cancel{
+    background-color: #ff471a;
+}
+
+/*Rental page section management*/
+.wrapper{
+    border: 2px solid darkolivegreen;
+    border-radius: 5px;
+    background-color: #3e8e3e;
+
+    margin-left: 27.5%;
+    width: 45%;
+    box-shadow: 15px 15px 15px darkolivegreen;
+}
+#wrapper-rental{
+    height: 70%;
+    margin-top: 5%;
+}
+#wrapper-view{
+    height: content-box;
+    margin-top: 5%;
+}
+#wrapper-create{
+    height: 50%;
+    margin-top: 5%;
+}
+.content{
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+#content-create{
+    width: 90%;
+}
+#content-cancel{
+    background-color: white;
+    margin-left: 0.25%;
+    padding: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 79.5%;
+}
+
+.line{
+    height:2px;
+    border-width:0;
+    color:gray;
+    background-color:darkgreen;
+    opacity: 0.2;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: gray;
+    opacity: 0.6;
+}

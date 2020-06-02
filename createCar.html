@@ -3,35 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="NMPCSS.css">
+    <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
 <body>
-<br>
-<h1>Create a new motorhome!</h1>
-<br>
-<form action="create" method="post">
-    <label>Enter motorhome brand</label>
-    <input type="text" name="brand">
-    <br>
-    <label>Enter motorhome model</label>
-    <input type="text" name="model">
-    <br>
-    <label>Enter number of beds</label>
-    <input type="text" name="beds">
-    <br>
-    <label>Enter motorhome status</label>
-    <input type="text" name="car_status">
-    <br>
-    <label>Enter motorhome registration</label>
-    <input type="text" name="car_registration">
-    <br>
-    <label>Enter the mileage the motorhome has driven</label>
-    <input type="number" name="mileage">
-    <br>
-    <label>Enter the price group the motorhome is in</label>
-    <input type="text" name="price_group">
-    <br>
-    <input style="background-color: cyan" type="submit" value="Create new motorhome">
-</form>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Opret ny bil</h1>
+    <div class="wrapper" id="wrapper-create">
+        <div class="content" id="content-create">
+            <form action="createCar" method="post">
+
+                <label>Bil mærke:</label>
+                <input style="float:right;" type="text" name="brand" placeholder="Fiat" pattern="(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Start med stor og min. 2 bogstaver!">
+                <br><hr class="line">
+
+                <label>Bil model:</label>
+                <input style="float:right;" type="text" name="model" placeholder="Multipla">
+                <br><hr class="line">
+
+                <label>Antal senge:</label>
+                <input style="float:right;" type="number" name="beds" placeholder="4" pattern="((?=.*\d).{1,}}" title="Indtast min. 1 tal">
+                <br><hr class="line">
+
+                <label>Status på bilen:</label>
+                <select style="float: right; width: 162px;" id="car_id" name="car_status">
+                    <option label="Select .." value="NONE"></option>
+                    <option value="Available">Available</option>
+                    <option value="Reperation">Reperation</option>
+                    <option value="Unavailable">Unavailable</option>
+                </select>
+
+                <br><hr class="line">
+
+                <label>Bil registerrings nummer:</label>
+                <input style="float:right;" type="text" name="car_registration" placeholder="01010101" pattern="((?=.*\d).{7,}}" title="Indtast min. 7 tal">
+                <br><hr class="line">
+
+                <label>Antal kilometer kørt:</label>
+                <input style="float:right;" type="number" name="mileage" placeholder="101010" pattern="((?=.*\d).{1,}}" title="Indtast min. 1 tal">
+                <br><hr class="line">
+
+                <input style="background-color: cyan; float: right;" type="submit" value="Opret bilen">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

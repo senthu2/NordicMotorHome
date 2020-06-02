@@ -1,6 +1,6 @@
 package com.example.demo.Repository;
 
-import com.example.demo.model.Cars;
+import com.example.demo.Model.Cars;
 //import com.example.demo.model.Customer;
 //import com.example.demo.model.Cars;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,15 +28,15 @@ public class CarsRepo {
 
 
         String sql = "select d.price_id from documentation d"
-                    +" where d.car_status = 'Available'"
-                    +" and d.documentation_id not in"
-                    +" (select r.documentation_id from Rentals r"
-                    +" where r.documentation_id is not null"
-                    +" and (r.from_date between ? and ?"
-                    +" or  r.to_date between ? and ?))"
-                    +" group by d.price_id"
-                    +" having count(d.price_id) > 0"
-                    +" order by d.price_id";
+                +" where d.car_status = 'Available'"
+                +" and d.documentation_id not in"
+                +" (select r.documentation_id from Rentals r"
+                +" where r.documentation_id is not null"
+                +" and (r.from_date between ? and ?"
+                +" or  r.to_date between ? and ?))"
+                +" group by d.price_id"
+                +" having count(d.price_id) > 0"
+                +" order by d.price_id";
 
 
 

@@ -1,8 +1,8 @@
 package com.example.demo.Repository;
 
-import com.example.demo.model.Cars;
-import com.example.demo.model.PickUpPoint;
-import com.example.demo.model.Rental;
+import com.example.demo.Model.Cars;
+import com.example.demo.Model.PickUpPoint;
+import com.example.demo.Model.Rental;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -55,8 +55,8 @@ public class PickUpRepo
     public PickUpPoint findPointById(int PickUP_id)
     {
         String sql = "SELECT * FROM PickUpPoints where PickUP_id = ?";
-        RowMapper<PickUpPoint> rowmapper = new BeanPropertyRowMapper<>(PickUpPoint.class);
-        PickUpPoint p = template.queryForObject(sql, rowmapper,PickUP_id);
+        RowMapper<PickUpPoint> rowMapper = new BeanPropertyRowMapper<>(PickUpPoint.class);
+        PickUpPoint p = template.queryForObject(sql, rowMapper, PickUP_id);
         return p;
     }
 

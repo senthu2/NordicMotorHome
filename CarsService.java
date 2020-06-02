@@ -1,6 +1,6 @@
 package com.example.demo.Service;
 
-import com.example.demo.model.Cars;
+import com.example.demo.Model.Cars;
 //import com.example.demo.model.Customer;
 import com.example.demo.Repository.CarsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,3 +43,4 @@ public class CarsService {
         return carsRepo.updateCar(car_id, c);
     }
 }
+

@@ -1,4 +1,5 @@
-package com.example.demo.model;
+package com.example.demo.Model;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,6 +31,14 @@ public Cars(){
         this.car_status = car_status;
         this.car_registration = car_registration;
         this.mileage = mileage;
+        this.price_id = price_id;
+    }
+
+    public int getPrice_id() {
+        return price_id;
+    }
+
+    public void setPrice_id(int price_id) {
         this.price_id = price_id;
     }
 
@@ -103,23 +112,13 @@ public Cars(){
     this.car_registration = car_registration;
     }
 
-    public int getMileage()
-    {
-        return mileage;
+    public int getMileage() {
+
+    return mileage;
     }
 
     public void setMileage(int mileage) {
 
     this.mileage = mileage;
-    }
-
-    public int getPrice_id() {
-
-    return price_id;
-    }
-
-    public void setPrice_id(int price_id) {
-
-    this.price_id = price_id;
     }
 }

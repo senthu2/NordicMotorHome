@@ -2,9 +2,9 @@ package com.example.demo.Service;
 
 import com.example.demo.Repository.CarsRepo;
 import com.example.demo.Repository.PickUpRepo;
-import com.example.demo.model.Cars;
-import com.example.demo.model.PickUpPoint;
-import com.example.demo.model.Rental;
+import com.example.demo.Model.Cars;
+import com.example.demo.Model.PickUpPoint;
+import com.example.demo.Model.Rental;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

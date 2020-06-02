@@ -6,17 +6,21 @@
     <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
 <body>
-    <h1 style="margin-left: 40%; margin-top: 3%;">Opret ny medarbejder</h1>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Opret ny kunde</h1>
     <div class="wrapper" id="wrapper-create">
         <div class="content" id="content-create">
-            <form action="/createStaff" method="post">
+            <form action="createCustomer" method="post">
 
                 <label>Fornavn:</label>
-                <input style="float:right;" type="text" name="staff_first_name" placeholder="Anders" pattern="(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Start med stor og min. 2 bogstaver!">
+                <input style="float:right;" type="text" name="cus_first_name" placeholder="Anders" pattern="(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Start med stor og min. 2 bogstaver!">
                 <br><hr class="line">
 
                 <label>Efternavn:</label>
-                <input style="float:right;" type="text" name="staff_last_name" placeholder="And" pattern="(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Start med stor og min. 2 bogstaver!">
+                <input style="float:right;" type="text" name="cus_last_name" placeholder="And" pattern="(?=.*[a-z])(?=.*[A-Z]).{2,}" title="Start med stor og min. 2 bogstaver!">
+                <br><hr class="line">
+
+                <label>Kørekort:</label>
+                <input style="float:right;" type="text" name="driver_licence" placeholder="01010101" pattern="((?=.*\d).{7,}}" title="Indtast min. 7 tal">
                 <br><hr class="line">
 
                 <label>Gade:</label>
@@ -35,9 +39,12 @@
                 <input style="float:right;" type="text" name="zip_code" placeholder="0101" pattern="((?=.*\d).{3,}}" title="Indtast min. 3 tal">
                 <br><hr class="line">
 
-                <input style="background-color: cyan; float: right;" type="submit" value="Opret medarbejder">
+                <input style="background-color: cyan; float: right;" type="submit" value="Opret kunden">
             </form>
         </div>
     </div>
+
 </body>
+
+
 </html>

@@ -6,31 +6,44 @@
     <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
 <body>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Opdater medarbejder</h1>
+    <div class="wrapper" id="wrapper-view">
+        <div class="content" id="content-create">
+            <form action="/updateStaffUp" method="post">
+                <h1>Opdater address</h1>
+                <hr class="line">
+                <input type="hidden" name="staff_id" th:value="${staff.staff_id}">
+                <label>Skift fornavn:</label>
+                <input style="float: right;" type="text" name="staff_first_name" th:value="${staff.staff_first_name}">
+                <br><hr class="line">
+                <label>Skift efternavn:</label>
+                <input style="float: right;" type="text" name="staff_last_name" th:value="${staff.staff_last_name}">
+                <br><hr class="line">
 
-    <h1>Edit staff member</h1>
-    <br>
-    <form action="/updateStaffUp" method="post">
-        <input type="hidden" name="staff_id" th:value="${staff.staff_id}">
-        <label>First name:</label>
-        <input type="text" name="staff_first_name" th:value="${staff.staff_first_name}">
-        <label>Last name:</label>
-        <input type="text" name="staff_last_name" th:value="${staff.staff_last_name}">
+            <h1>Opdater address</h1>
+                <hr class="line">
 
-    <h1>Edit address</h1>
+                <label>Skift gade:</label>
+                <input style="float: right;" type="text" name="street" th:value="${staff.street}">
+                <br><hr class="line">
+                <label>Skift hus nummer:</label>
+                <input style="float: right;" type="text" name="house_num" th:value="${staff.house_num}">
+                <br><hr class="line">
 
-        <label>First name:</label>
-        <input type="text" name="street" th:value="${staff.street}">
-        <label>Last name:</label>
-        <input type="text" name="house_num" th:value="${staff.house_num}">
+            <h1>Opdater lokation</h1>
+                <hr class="line">
 
-    <h1>Edit location</h1>
+                <label>Skift by:</label>
+                <input style="float: right;" type="text" name="city" th:value="${staff.city}">
+                <br><hr class="line">
+                <label>Skift postnummer:</label>
+                <input style="float: right;" type="text" name="zip_code" th:value="${staff.zip_code}">
+                <br><hr class="line">
 
-        <label>First name:</label>
-        <input type="text" name="city" th:value="${staff.city}">
-        <label>Last name:</label>
-        <input type="text" name="zip_code" th:value="${staff.zip_code}">
-
-        <input type="submit" value="Save changes">
-    </form>
+                <input style="float: right;" type="submit" value="Gem ændringer">
+                <br><br>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="/NMPCSS.css">
+    <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
 <body>
 
-    <h1>Motorhome details</h1>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Bil detaljer</h1>
 
+    <div class="wrapper" id="wrapper-view">
     <table>
         <thead>
         <tr>
 
-            <th>Car ID</th>
-            <th>Car brand</th>
-            <th>Car model</th>
-            <th>Car beds</th>
-            <th>Car documentation ID</th>
-            <th>Car status</th>
-            <th>Car registration</th>
-            <th>Car mileage</th>
+            <th>Bil ID</th>
+            <th>Bil mærke</th>
+            <th>Bil model</th>
+            <th>Antal senge</th>
 
         </tr>
         </thead>
         <tbody>
-            <td th:text="${car.car_id}" />
-            <td th:text="${car.brand}" />
-            <td th:text="${car.model}" />
-            <td th:text="${car.beds}" />
-            <td th:text="${car.documentation_id}" />
-            <td th:text="${car.car_status}" />
-            <td th:text="${car.car_registration}" />
-            <td th:text="${car.mileage}" />
+            <td th:text="${cars.car_id}" />
+            <td th:text="${cars.brand}" />
+            <td th:text="${cars.model}" />
+            <td th:text="${cars.beds}" />
+        </tr>
+        </tbody>
+
+        <thead>
+        <tr>
+
+            <th>Bil dokumentation ID</th>
+            <th>Status på bilen</th>
+            <th>Bil registering</th>
+            <th>Antal kilometer kørt</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <td th:text="${cars.documentation_id}" />
+        <td th:text="${cars.car_status}" />
+        <td th:text="${cars.car_registration}" />
+        <td th:text="${cars.mileage}" />
         </tr>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

@@ -1,8 +1,8 @@
 package com.example.demo.Repository;
 
-import com.example.demo.model.Cars;
-import com.example.demo.model.PickUpPoint;
-import com.example.demo.model.Rental;
+import com.example.demo.Model.Cars;
+import com.example.demo.Model.PickUpPoint;
+import com.example.demo.Model.Rental;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,11 +21,11 @@ public class RentalRepo
     public List<Rental> fetchAll()
     {
         String sql = "select r.*, d.mileage, d.price_id, r.total_price, DATEDIFF(r.to_date,r.from_date)+1 as days_of_rental"
-       + " from NMP.Rentals r"
-       + " inner join NMP.documentation d  on d.documentation_id = r.documentation_id"
-       + " inner join NMP.price_group g on d.price_id = g.price_id"
-       +    " , NMP.seasons s"
-       +  " where r.from_Date between s.from_date and s.to_date";
+                + " from NMP.Rentals r"
+                + " inner join NMP.documentation d  on d.documentation_id = r.documentation_id"
+                + " inner join NMP.price_group g on d.price_id = g.price_id"
+                +    " , NMP.seasons s"
+                +  " where r.from_Date between s.from_date and s.to_date";
 
 
         RowMapper<Rental> rowmapper = new BeanPropertyRowMapper<>(Rental.class);
@@ -38,16 +38,16 @@ public class RentalRepo
     {
         //leje af bil med dato og pris_id som parametre
         String sql = " select d.* from NMP.documentation d\n" +
-                    " where true\n" +
-                    " and d.car_status = 'Available'\n" +
-                    " and d.price_id = ?\n" +
-                    " and d.documentation_id not in\n" +
-                    " (select r.documentation_id from Rentals r\n" +
-                    " where r.documentation_id is not null\n" +
-                    "  and (r.from_date between ? and ?\n" +
-                    "  or  r.to_date between ? and ?))\n" +
-                    " order by d.mileage \n" +
-                    " limit 1 ";
+                " where true\n" +
+                " and d.car_status = 'Available'\n" +
+                " and d.price_id = ?\n" +
+                " and d.documentation_id not in\n" +
+                " (select r.documentation_id from Rentals r\n" +
+                " where r.documentation_id is not null\n" +
+                "  and (r.from_date between ? and ?\n" +
+                "  or  r.to_date between ? and ?))\n" +
+                " order by d.mileage \n" +
+                " limit 1 ";
 
         RowMapper<Cars> rowmapper = new BeanPropertyRowMapper<>(Cars.class);
         return template.queryForObject(sql, rowmapper, price_id, from, to, from, to);
@@ -55,10 +55,9 @@ public class RentalRepo
 
     public Rental getRentalPrice(Rental r)
     {
-        System.out.println("PRICE sql price.id "+r.getPrice_id()+" dato \""+ r.getFrom_Date()+" til dato "+ r.getTo_Date()+" pick "+r.getPickUP_id()+" drop "+ r.getDropOf_id());
-
+        System.out.println("PRICE sql price.id "+r.getPrice_id()+" dato \""+ r.getFrom_Date()+" pick "+r.getPickUP_id()+" drop "+ r.getDropOf_id());
         String sql = "SELECT ((pg.price*s.price_factor)*(DATEDIFF(?, ?) + 1)+(pup.kmAway*0.7)+(dop.kmAway*0.7)) as price from NMP.price_group pg, NMP.seasons s, NMP.PickUpPoints pup, NMP.PickUpPoints dop where pg.price_id = ? and ? between s.from_date and s.to_date and pup.pickUP_id = ? and dop.pickUP_id = ?";
-        double price = template.queryForObject(sql, Double.class,  r.getTo_Date(),r.getFrom_Date(),r.getPrice_id(),r.getFrom_Date(), r.getPickUP_id(), r.getDropOf_id());
+        double price = template.queryForObject(sql, Double.class, r.getTo_Date(), r.getFrom_Date(),r.getPrice_id(), r.getFrom_Date(), r.getPickUP_id(), r.getDropOf_id());
         r.setTotal_price(price);
         System.out.println(r.getPrice_id());
 
@@ -79,10 +78,10 @@ public class RentalRepo
     {
         //String sql = "SELECT * FROM Rentals where rental_id = ?";
         String sql = "select r.*, d.mileage, DATEDIFF(r.to_date,r.from_date)+1 as days_of_rental" +
-                    " from NMP.Rentals r\n"
-                    + " inner join NMP.documentation d\n"
-                    + " on r.documentation_id = d.documentation_id"
-                    + " where rental_id = ?";
+                " from NMP.Rentals r\n"
+                + " inner join NMP.documentation d\n"
+                + " on r.documentation_id = d.documentation_id"
+                + " where rental_id = ?";
         RowMapper<Rental> rowmapper = new BeanPropertyRowMapper<>(Rental.class);
         Rental r = template.queryForObject(sql, rowmapper,id);
         return r;

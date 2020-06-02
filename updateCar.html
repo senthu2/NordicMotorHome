@@ -3,35 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/NMP.css">
 </head>
 <body>
-<h1>Change any details on the motorhome</h1>
-<br>
+    <h1 style="margin-left: 40%; margin-top: 3%;">Opdater bil</h1>
+    <div class="wrapper" id="wrapper-view">
+        <div class="content" id="content-create">
+            <form action="/updateCarUp" method="post">
+            <h1>Edit documetation</h1>
+            <hr class="line">
+            <input type="hidden" name="car_id" th:value="${cars.car_id}">
+            <label>Skift mærke:</label>
+            <input style="float: right;" type="text" name="brand" th:value="${cars.brand}">
+            <br><hr class="line">
+            <label>Skift model:</label>
+            <input style="float: right;" type="text" name="model" th:value="${cars.model}">
+            <br><hr class="line">
+            <label>Skift antal af senge:</label>
+            <input style="float: right;" type="text" name="beds" th:value="${cars.beds}">
+            <br><hr class="line">
 
-<form action="/updateCar" method="post">
-    <label>Change the motorhomes brand</label>
-    <input type="hidden" name="car_id" th:value="${car.car_id}">
-    <input type="text" name="brand" th:value="${car.brand}">
-    <br>
-    <label>Change the motorhomes model</label>
-    <input type="text" name="model" th:value="${car.model}">
-    <br>
-    <label>Change the motorhome number of beds</label>
-    <input type="text" name="beds" th:value="${car.beds}">
-    <br>
-    <label>Change the motorhomes status</label>
-    <input type="text" name="car_status" th:value="${car.car_status}">
-    <br>
-    <label>Change the motorhomes registration</label>
-    <input type="text" name="car_registration" th:value="${car.car_registration}">
-    <br>
-    <label>Change the motorhomes number of mileage</label>
-    <input type="number" name="mileage" th:value="${car.mileage}">
-    <br>
-    <label>Change the motorhomes price group</label>
-    <input type="text" name="price_group" th:value="${car.price_group}">
-    <br>
-    <input type="submit" value="Save changes">
-</form>
+            <h1>Edit documetation</h1>
+            <hr class="line">
+            <label>Skift status på bilen:</label>
+            <input style="float: right;" type="text" name="car_status" th:value="${cars.car_status}">
+            <br><hr class="line">
+            <label>Skift registerings nummer:</label>
+            <input style="float: right;" type="text" name="car_registration" th:value="${cars.car_registration}">
+            <br><hr class="line">
+            <label>Skift antal af kilometer kørt:</label>
+            <input style="float: right;" type="number" name="mileage" th:value="${cars.mileage}">
+            <br><hr class="line">
+            <label>Change the motorhomes price group</label>
+            <input style="float: right;" type="text" name="price_group" th:value="${cars.price_group}">
+            <br><hr class="line">
+            <input style="float: right;" type="submit" value="Gem ændringer">
+            <br><br>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
