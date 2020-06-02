@@ -8,46 +8,46 @@
 </head>
 <body>
 <h1>CONFIRM</h1>
-    <form action="/confirm" method="post">
+<form action="/confirm" method="post">
 
-        <label>Pris-gruppe</label>
-         <p th:text="${rental.price_id}">pris-id </p>
-        <p th:text="${rental.total_price}">Totalpris medregnet drop point muligheder, ekstra betaling kan forkomme ved slut</p>
+    <label>Pris-gruppe</label>
+    <p th:text="${rental.price_id}">pris-id </p>
+    <p th:text="${rental.total_price}">Totalpris medregnet drop point muligheder, ekstra betaling kan forkomme ved slut</p>
 
-        <br><br>
+    <br><br>
 
-        <label>Her ses bilen</label>
-        <p th:text="${rental.documentation_id}">Dok_ID</p>
-        <p th:text="${car.brand}">Bilens oplysninger</p>
-        <p th:text="${car.model}"></p>
-        <p th:text="${car.beds}"></p>
-        <p th:text="${car.mileage}"></p>
-        <p th:text="${car.car_registration}"></p>
-
-
-
-        <br><br>
+    <label>Her ses bilen</label>
+    <p th:text="${rental.documentation_id}">Dok_ID</p>
+    <p th:text="${car.brand}">Bilens oplysninger</p>
+    <p th:text="${car.model}"></p>
+    <p th:text="${car.beds}"></p>
+    <p th:text="${car.mileage}"></p>
+    <p th:text="${car.car_registration}"></p>
 
 
 
-        <label>Her er kunden</label>
-        <p th:text="${rental.customer_id}">Kunde ID</p>
-        <p th:text="${customer.cus_first_name}">Fornavn</p>
-        <p th:text="${customer.cus_last_name}">Efternavn</p>
-
-        <br><br>
-        <p th:text="${pickUp.place}">Her skal bilen afhentes af kunden</p>
-        <p th:text="${dropOf.place}">Her skal kunden stille bilen efter endt udlejning</p>
-
-        <br><br>
-        <p th:text="${rental.from_Date}">Udlejningsdetaljer</p>
-        <p th:text="${rental.to_Date}">Udlejningen er aktiv fra d.</p>
+    <br><br>
 
 
-        <br><br>
 
-        <input type="submit" value="Bekræft udlejning">
+    <label>Her er kunden</label>
+    <p th:text="${rental.customer_id}">Kunde ID</p>
+    <p th:text="${customer.cus_first_name}">Fornavn</p>
+    <p th:text="${customer.cus_last_name}">Efternavn</p>
 
-    </form>
+    <br><br>
+    <p th:text="${pickUp.place}">Her skal bilen afhentes af kunden</p>
+    <p th:text="${dropOf.place}">Her skal kunden stille bilen efter endt udlejning</p>
+
+    <br><br>
+    <p th:text="${rental.from_Date}">Udlejningsdetaljer</p>
+    <p th:text="${rental.to_Date}">Udlejningen er aktiv fra d.</p>
+
+
+    <br><br>
+
+    <input type="submit" value="Bekræft udlejning">
+
+</form>
 </body>
 </html>

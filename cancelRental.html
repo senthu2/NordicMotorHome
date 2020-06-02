@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>See details</title>
-    <link rel="stylesheet" type="text/css" href="/NMP.css">
+    <link rel="stylesheet" type="text/css" href="/static/NMP.css">
 </head>
 <body>
 
@@ -24,11 +24,11 @@
         <br><hr class="line">
 
         <label>Dato fra:</label>
-        <div style="float: right" th:text="${rental.from_Date}"/>
+        <div style="float: right" th:text="${rental.from_date}"/>
         <br><hr class="line">
 
         <label>Dato til:</label>
-        <div style="float: right" th:text="${rental.to_Date}"/>
+        <div style="float: right" th:text="${rental.to_date}"/>
         <br><hr class="line">
 
         <label>Antal dage:</label>
@@ -67,7 +67,9 @@
         <p>X.X</p>
         <br><hr class="line">
         <label>Total price:</label>
-        <div style="float: right" th:text="${rentalUP.total_price}"/>
+        <div style="float: right" th:text="${cancel.cancel_price}"/>
+        <td th:text="${rental.rental_id}" />
+        <td th:text="${cancel.cancel_price}" />
         <br><br>
         <div style="float: right">
         <a th:href="@{'/cancelRentalUp/'+${rental.rental_id}}">

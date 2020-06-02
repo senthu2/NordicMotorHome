@@ -119,7 +119,7 @@ public class HomeController {
         }
 
         System.out.println("create returnerer confirm siden");
-        return "home/manageRental/chooseCar";  //"redirect:/";
+        return "redirect:/chooseCar";  //"redirect:/";
     }
 
     @GetMapping("/chooseCar")
@@ -131,8 +131,6 @@ public class HomeController {
         List<Cars> carList = carsService.fetchAll();
         System.out.println("Biler sz "+carList.size());
         model.addAttribute("carlist", carList);
-
-
 
         return "home/manageRental/chooseCar";
     }
@@ -151,13 +149,17 @@ public class HomeController {
 
         model.addAttribute("car", c);
         //rentalservice.createRental(r);
-        return "redirect:/manageRental/confirm";
+        return "redirect:/confirm";
     }
 
     @GetMapping("/confirm")
-    public String confirmForm(@ModelAttribute("rental") Rental r)
+    public String confirmForm(@ModelAttribute("rental") Rental r, Model model)
     {
-        System.out.println("Confirm-get new rental start \""+r.getFrom_Date()+"\" pickup.id "+r.getPickUP_id() + " Her kommer et rental id: " + r.getRental_id());
+        System.out.println("Confirm-get new rental start \""+r.getFrom_Date()+"\" pickup.id "+r.getPickUP_id() + " Her kommer et rental id: " + r.getRental_id());        model.addAttribute("pickUp", pickUpService.findPointById(r.getPickUP_id()));
+        model.addAttribute("pickUp", pickUpService.findPointById(r.getPickUP_id()));
+        model.addAttribute("dropOf", pickUpService.findPointById(r.getDropOf_id()));
+        model.addAttribute("car", carsService.findCarById(r.getDocumentation_id()));
+        model.addAttribute("customer", customerService.findCustomerById(r.getCustomer_id()));
         return "home/manageRental/confirm";
     }
 
@@ -192,6 +194,8 @@ public class HomeController {
         model.addAttribute("rent", r);
         model.addAttribute("pickUp", pickUpService.findPointById(r.getPickUP_id()));
         model.addAttribute("dropOf", pickUpService.findPointById(r.getDropOf_id()));
+        model.addAttribute("car", carsService.findCarById(r.getDocumentation_id()));
+        model.addAttribute("customer", customerService.findCustomerById(r.getCustomer_id()));
         return "home/viewOne/viewOneRental";
     }
 
@@ -265,12 +269,13 @@ public class HomeController {
         return "redirect:/";
     }
 
-    /*@GetMapping("/updateRental/{rental_id}")
+    @GetMapping("/updateRental/{rental_id}")
     public String updateRental(@PathVariable("rental_id") int rental_id, Model model){
         model.addAttribute("rental", rentalservice.findRentalById(rental_id));
         return "home/update/updateRental";
     }
-    @PostMapping("/updateRentalUp")
+
+   /* @PostMapping("/updateRentalUp")
     public String updateRentalUp(@ModelAttribute Rental rental){
         rentalservice.updateRental(rental.getRental_id(), rental);
         return "redirect:/";
