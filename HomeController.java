@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Service.CarsService;
+import com.example.demo.Service.CustomerService;
 import com.example.demo.Service.PickUpService;
 import com.example.demo.Service.RentalService;
 import com.example.demo.model.Cars;
@@ -28,6 +29,9 @@ public class HomeController
 
     @Autowired
     CarsService carservice;
+
+    @Autowired
+    CustomerService cosService;
 
     @ModelAttribute("rental")
     public Rental getRental()
@@ -109,9 +113,13 @@ public class HomeController
     }
 
     @GetMapping("/confirm")
-    public String confirmForm(@ModelAttribute("rental") Rental r)
+    public String confirmForm(@ModelAttribute("rental") Rental r, Model model)
     {
         System.out.println("Confirm-get new rental start \""+r.getFrom_Date()+"\" pickup.id "+r.getPickUP_id() + " Her kommer et rental id: " + r.getRental_id());
+        model.addAttribute("pickUp", pickUpService.findPointById(r.getPickUP_id()));
+        model.addAttribute("dropOf", pickUpService.findPointById(r.getDropOf_id()));
+        model.addAttribute("car", carservice.findCarById(r.getDocumentation_id()));
+        model.addAttribute("customer", cosService.findCustomerById(r.getCustomer_id()));
         return "home/confirm";
     }
 
@@ -132,6 +140,8 @@ public class HomeController
         model.addAttribute("rent", r);
         model.addAttribute("pickUp", pickUpService.findPointById(r.getPickUP_id()));
         model.addAttribute("dropOf", pickUpService.findPointById(r.getDropOf_id()));
+        model.addAttribute("car", carservice.findCarById(r.getDocumentation_id()));
+        model.addAttribute("customer", cosService.findCustomerById(r.getCustomer_id()));
         return "home/ViewRental";
     }
 

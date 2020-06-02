@@ -55,9 +55,10 @@ public class RentalRepo
 
     public Rental getRentalPrice(Rental r)
     {
-        System.out.println("PRICE sql price.id "+r.getPrice_id()+" dato \""+ r.getFrom_Date()+" pick "+r.getPickUP_id()+" drop "+ r.getDropOf_id());
+        System.out.println("PRICE sql price.id "+r.getPrice_id()+" dato \""+ r.getFrom_Date()+" til dato "+ r.getTo_Date()+" pick "+r.getPickUP_id()+" drop "+ r.getDropOf_id());
+
         String sql = "SELECT ((pg.price*s.price_factor)*(DATEDIFF(?, ?) + 1)+(pup.kmAway*0.7)+(dop.kmAway*0.7)) as price from NMP.price_group pg, NMP.seasons s, NMP.PickUpPoints pup, NMP.PickUpPoints dop where pg.price_id = ? and ? between s.from_date and s.to_date and pup.pickUP_id = ? and dop.pickUP_id = ?";
-        double price = template.queryForObject(sql, Double.class, r.getTo_Date(), r.getFrom_Date(),r.getPrice_id(), r.getFrom_Date(), r.getPickUP_id(), r.getDropOf_id());
+        double price = template.queryForObject(sql, Double.class,  r.getTo_Date(),r.getFrom_Date(),r.getPrice_id(),r.getFrom_Date(), r.getPickUP_id(), r.getDropOf_id());
         r.setTotal_price(price);
         System.out.println(r.getPrice_id());
 
